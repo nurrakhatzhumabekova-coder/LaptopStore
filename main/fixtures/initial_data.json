@@ -1,0 +1,429 @@
+[
+  {
+    "model": "main.category",
+    "pk": 1,
+    "fields": {
+      "name": "Игровые ноутбуки",
+      "slug": "gaming-laptops",
+      "description": "Мощные ноутбуки для игр и работы с графикой. Оснащены современными видеокартами и процессорами.",
+      "icon": "🎮",
+      "created_at": "2024-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 2,
+    "fields": {
+      "name": "Ультрабуки",
+      "slug": "ultrabooks",
+      "description": "Легкие и компактные ноутбуки для работы и учебы. Идеальны для мобильных профессионалов.",
+      "icon": "💼",
+      "created_at": "2024-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 3,
+    "fields": {
+      "name": "Бизнес-ноутбуки",
+      "slug": "business-laptops",
+      "description": "Надежные ноутбуки для бизнеса с повышенной защитой и производительностью.",
+      "icon": "💻",
+      "created_at": "2024-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 4,
+    "fields": {
+      "name": "Трансформеры",
+      "slug": "convertibles",
+      "description": "Ноутбуки-трансформеры с сенсорным экраном и возможностью работы в режиме планшета.",
+      "icon": "🔄",
+      "created_at": "2024-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 5,
+    "fields": {
+      "name": "Рабочие станции",
+      "slug": "workstations",
+      "description": "Мощные ноутбуки для профессиональных задач: 3D-моделирование, видеомонтаж, программирование.",
+      "icon": "⚡",
+      "created_at": "2024-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 1,
+    "fields": {
+      "name": "ASUS ROG Strix G16",
+      "slug": "asus-rog-strix-g16",
+      "category": 1,
+      "brand": "ASUS",
+      "model": "G16 G614JIR",
+      "description": "Мощный игровой ноутбук с процессором Intel Core i9 13-го поколения и видеокартой NVIDIA RTX 4080. Идеален для современных игр в максимальных настройках.",
+      "price": "2500.00",
+      "discount_price": "2200.00",
+      "stock": 15,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i9-13980HX (24 ядра, до 5.6 ГГц)",
+        "ram": "32GB DDR5 (4800 МГц)",
+        "storage": "1TB NVMe PCIe 4.0 SSD",
+        "graphics": "NVIDIA GeForce RTX 4080 12GB",
+        "display": "16 дюймов, WQXGA (2560x1600), 240 Гц, IPS",
+        "battery": "90 Вт·ч",
+        "weight": "2.5 кг",
+        "os": "Windows 11 Pro",
+        "ports": "2x USB-C, 2x USB-A, HDMI 2.1, Ethernet, аудио"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-15T10:00:00Z",
+      "updated_at": "2024-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 2,
+    "fields": {
+      "name": "Apple MacBook Air M2",
+      "slug": "apple-macbook-air-m2",
+      "category": 2,
+      "brand": "Apple",
+      "model": "MacBook Air 2023",
+      "description": "Легкий и мощный ноутбук с чипом Apple M2. Отличная автономность до 18 часов работы. Идеален для работы, учебы и повседневных задач.",
+      "price": "1200.00",
+      "discount_price": null,
+      "stock": 20,
+      "image": "",
+      "specifications": {
+        "processor": "Apple M2 (8 ядер CPU, 10 ядер GPU)",
+        "ram": "16GB Unified Memory",
+        "storage": "512GB SSD",
+        "graphics": "Integrated 10-core GPU",
+        "display": "13.6 дюймов, Liquid Retina, 2560x1664",
+        "battery": "52.6 Вт·ч (до 18 часов)",
+        "weight": "1.24 кг",
+        "os": "macOS Sonoma",
+        "ports": "2x USB-C (Thunderbolt), 3.5mm аудио, MagSafe 3"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-15T10:00:00Z",
+      "updated_at": "2024-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 3,
+    "fields": {
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "slug": "lenovo-thinkpad-x1-carbon",
+      "category": 3,
+      "brand": "Lenovo",
+      "model": "X1 Carbon Gen 11",
+      "description": "Бизнес-ноутбук премиум класса с отличной защитой данных и надежностью. Легкий корпус из углеродного волокна.",
+      "price": "1800.00",
+      "discount_price": "1600.00",
+      "stock": 10,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i7-1365U (10 ядер, до 5.2 ГГц)",
+        "ram": "16GB LPDDR5 (6400 МГц)",
+        "storage": "512GB NVMe SSD",
+        "graphics": "Integrated Intel Iris Xe Graphics",
+        "display": "14 дюймов, WUXGA (1920x1200), IPS, антиблик",
+        "battery": "57 Вт·ч (до 15 часов)",
+        "weight": "1.12 кг",
+        "os": "Windows 11 Pro",
+        "ports": "2x Thunderbolt 4, 2x USB-A, HDMI 2.0, 3.5mm аудио"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "created_at": "2024-01-16T10:00:00Z",
+      "updated_at": "2024-01-16T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 4,
+    "fields": {
+      "name": "Dell XPS 16",
+      "slug": "dell-xps-16",
+      "category": 2,
+      "brand": "Dell",
+      "model": "XPS 16 9640",
+      "description": "Мощный ультрабук для профессионалов с 4K OLED дисплеем. Отличная цветопередача и высокая производительность.",
+      "price": "2100.00",
+      "discount_price": null,
+      "stock": 8,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i9-13900H (14 ядер, до 5.4 ГГц)",
+        "ram": "32GB DDR5 (5600 МГц)",
+        "storage": "1TB NVMe SSD",
+        "graphics": "NVIDIA GeForce RTX 4070 8GB",
+        "display": "16 дюймов, 4K OLED (3840x2400), Touch",
+        "battery": "100 Вт·ч (до 12 часов)",
+        "weight": "2.2 кг",
+        "os": "Windows 11 Pro",
+        "ports": "2x Thunderbolt 4, 1x USB-C, 1x USB-A, HDMI 2.1, SD-слот"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-16T10:00:00Z",
+      "updated_at": "2024-01-16T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 5,
+    "fields": {
+      "name": "MSI Stealth 17",
+      "slug": "msi-stealth-17",
+      "category": 1,
+      "brand": "MSI",
+      "model": "Stealth 17 Studio A13V",
+      "description": "Тонкий игровой ноутбук с видеокартой RTX 4090. Максимальная производительность в компактном корпусе.",
+      "price": "3200.00",
+      "discount_price": "2800.00",
+      "stock": 5,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i9-13980HX (24 ядра, до 5.6 ГГц)",
+        "ram": "64GB DDR5 (5600 МГц)",
+        "storage": "2TB NVMe SSD (RAID 0)",
+        "graphics": "NVIDIA GeForce RTX 4090 16GB",
+        "display": "17.3 дюймов, 4K (3840x2160), 144 Гц, Mini-LED",
+        "battery": "99.9 Вт·ч (до 8 часов)",
+        "weight": "2.1 кг",
+        "os": "Windows 11 Pro",
+        "ports": "2x Thunderbolt 4, 2x USB-C, 1x USB-A, HDMI 2.1, Ethernet"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-17T10:00:00Z",
+      "updated_at": "2024-01-17T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 6,
+    "fields": {
+      "name": "HP Spectre x360 16",
+      "slug": "hp-spectre-x360-16",
+      "category": 4,
+      "brand": "HP",
+      "model": "Spectre x360 16-f2000",
+      "description": "Трансформер премиум класса с сенсорным 4K OLED экраном. Работает как ноутбук и как планшет.",
+      "price": "1500.00",
+      "discount_price": "1350.00",
+      "stock": 12,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i7-1355U (10 ядер, до 5.0 ГГц)",
+        "ram": "16GB LPDDR5 (6400 МГц)",
+        "storage": "1TB NVMe SSD",
+        "graphics": "Integrated Intel Iris Xe",
+        "display": "16 дюймов, 4K OLED (3840x2400), Touch, 360° поворот",
+        "battery": "83 Вт·ч (до 15 часов)",
+        "weight": "1.78 кг",
+        "os": "Windows 11 Home",
+        "ports": "2x Thunderbolt 4, 1x USB-A, HDMI 2.1, 3.5mm аудио, MicroSD"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "created_at": "2024-01-17T10:00:00Z",
+      "updated_at": "2024-01-17T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 7,
+    "fields": {
+      "name": "Samsung Galaxy Book 3 Ultra",
+      "slug": "samsung-galaxy-book-3-ultra",
+      "category": 2,
+      "brand": "Samsung",
+      "model": "Galaxy Book 3 Ultra",
+      "description": "Мощный ультрабук с 3K AMOLED дисплеем и отличной интеграцией с экосистемой Samsung.",
+      "price": "1900.00",
+      "discount_price": "1700.00",
+      "stock": 7,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i7-1360P (12 ядер, до 5.0 ГГц)",
+        "ram": "16GB LPDDR5 (6400 МГц)",
+        "storage": "512GB NVMe SSD",
+        "graphics": "NVIDIA GeForce RTX 4050 6GB",
+        "display": "16 дюймов, 3K AMOLED (2880x1800), 120 Гц",
+        "battery": "76 Вт·ч (до 12 часов)",
+        "weight": "1.68 кг",
+        "os": "Windows 11 Home",
+        "ports": "2x Thunderbolt 4, 1x USB-A, HDMI 2.0, MicroSD"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "created_at": "2024-01-18T10:00:00Z",
+      "updated_at": "2024-01-18T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 8,
+    "fields": {
+      "name": "Acer Predator Helios 16",
+      "slug": "acer-predator-helios-16",
+      "category": 1,
+      "brand": "Acer",
+      "model": "Predator Helios 16 PH16-71",
+      "description": "Игровой ноутбук с RGB подсветкой и мощной системой охлаждения. Отличный выбор для киберспорта.",
+      "price": "1900.00",
+      "discount_price": "1750.00",
+      "stock": 9,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i7-13700HX (16 ядер, до 5.0 ГГц)",
+        "ram": "32GB DDR5 (4800 МГц)",
+        "storage": "1TB NVMe SSD",
+        "graphics": "NVIDIA GeForce RTX 4070 8GB",
+        "display": "16 дюймов, WQXGA (2560x1600), 240 Гц, IPS",
+        "battery": "90 Вт·ч (до 10 часов)",
+        "weight": "2.8 кг",
+        "os": "Windows 11 Home",
+        "ports": "2x USB-C, 3x USB-A, HDMI 2.1, Ethernet, аудио"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "created_at": "2024-01-18T10:00:00Z",
+      "updated_at": "2024-01-18T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 9,
+    "fields": {
+      "name": "Asus Zenbook 14 OLED",
+      "slug": "asus-zenbook-14-oled",
+      "category": 2,
+      "brand": "ASUS",
+      "model": "Zenbook 14 UX3405",
+      "description": "Элегантный ультрабук с OLED дисплеем и отличной автономностью. Идеален для творческих профессионалов.",
+      "price": "1100.00",
+      "discount_price": null,
+      "stock": 18,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i7-1355U (10 ядер, до 5.0 ГГц)",
+        "ram": "16GB LPDDR5 (6400 МГц)",
+        "storage": "512GB NVMe SSD",
+        "graphics": "Integrated Intel Iris Xe",
+        "display": "14 дюймов, 2.8K OLED (2880x1800), 120 Гц",
+        "battery": "75 Вт·ч (до 15 часов)",
+        "weight": "1.2 кг",
+        "os": "Windows 11 Home",
+        "ports": "2x Thunderbolt 4, 1x USB-A, HDMI 2.1, 3.5mm аудио"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-19T10:00:00Z",
+      "updated_at": "2024-01-19T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 10,
+    "fields": {
+      "name": "Lenovo Legion Pro 7i",
+      "slug": "lenovo-legion-pro-7i",
+      "category": 1,
+      "brand": "Lenovo",
+      "model": "Legion Pro 7i Gen 8",
+      "description": "Флагманский игровой ноутбук с полной производительностью. Подходит для игр, стриминга и работы с видео.",
+      "price": "2800.00",
+      "discount_price": "2500.00",
+      "stock": 6,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i9-13900HX (24 ядра, до 5.4 ГГц)",
+        "ram": "32GB DDR5 (5600 МГц)",
+        "storage": "2TB NVMe SSD",
+        "graphics": "NVIDIA GeForce RTX 4090 16GB",
+        "display": "16 дюймов, WQXGA (2560x1600), 240 Гц, IPS",
+        "battery": "99.9 Вт·ч (до 9 часов)",
+        "weight": "2.85 кг",
+        "os": "Windows 11 Pro",
+        "ports": "2x USB-C, 4x USB-A, HDMI 2.1, Ethernet, аудио"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-19T10:00:00Z",
+      "updated_at": "2024-01-19T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 11,
+    "fields": {
+      "name": "Microsoft Surface Laptop 5",
+      "slug": "microsoft-surface-laptop-5",
+      "category": 3,
+      "brand": "Microsoft",
+      "model": "Surface Laptop 5",
+      "description": "Стильный бизнес-ноутбук с отличным сенсорным экраном и интеграцией с Windows.",
+      "price": "1300.00",
+      "discount_price": null,
+      "stock": 14,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i7-1255U (10 ядер, до 4.7 ГГц)",
+        "ram": "16GB LPDDR5x",
+        "storage": "512GB SSD",
+        "graphics": "Integrated Intel Iris Xe",
+        "display": "13.5 дюймов, PixelSense (2256x1504), Touch",
+        "battery": "47.4 Вт·ч (до 17 часов)",
+        "weight": "1.27 кг",
+        "os": "Windows 11 Pro",
+        "ports": "1x Thunderbolt 4, 1x USB-C, 1x USB-A, 3.5mm аудио"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "created_at": "2024-01-20T10:00:00Z",
+      "updated_at": "2024-01-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 12,
+    "fields": {
+      "name": "Razer Blade 16",
+      "slug": "razer-blade-16",
+      "category": 1,
+      "brand": "Razer",
+      "model": "Blade 16 2024",
+      "description": "Игровой ноутбук с дисплеем 4K 240 Гц и видеокартой RTX 4080. Тонкий и мощный.",
+      "price": "3500.00",
+      "discount_price": "3200.00",
+      "stock": 4,
+      "image": "",
+      "specifications": {
+        "processor": "Intel Core i9-13950HX (24 ядра, до 5.5 ГГц)",
+        "ram": "64GB DDR5 (5600 МГц)",
+        "storage": "2TB NVMe SSD",
+        "graphics": "NVIDIA GeForce RTX 4080 12GB",
+        "display": "16 дюймов, 4K (3840x2160), 240 Гц, Mini-LED",
+        "battery": "95.2 Вт·ч (до 10 часов)",
+        "weight": "2.45 кг",
+        "os": "Windows 11 Pro",
+        "ports": "2x Thunderbolt 4, 3x USB-A, HDMI 2.1, Ethernet"
+      },
+      "is_active": true,
+      "is_featured": true,
+      "created_at": "2024-01-20T10:00:00Z",
+      "updated_at": "2024-01-20T10:00:00Z"
+    }
+  }
+]
