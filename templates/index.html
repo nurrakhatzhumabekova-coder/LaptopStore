@@ -342,7 +342,10 @@
     JAVASCRIPT
     ============================================ -->
     <script>
-        const API_URL = 'http://127.0.0.1:8000/api/v1';
+        // ============================================================
+        // ⚠️ ВАЖНО: API_URL ДЛЯ ПРОДУКШИВНА
+        // ============================================================
+        const API_URL = 'https://laptopstore-2.onrender.com/api/v1';
         let currentUser = null;
         let currentPage = 1;
         let totalPages = 1;
@@ -625,9 +628,6 @@
             }
         }
 
-        // ============================================================
-        // RENDER PRODUCTS — С КАРТИНКАМИ
-        // ============================================================
         function renderProducts(products) {
             const container = document.getElementById('productsContainer');
 
@@ -667,9 +667,6 @@
             `;
         }
 
-        // ============================================================
-        // RENDER FAVORITES — С КАРТИНКАМИ (ИСПРАВЛЕНО)
-        // ============================================================
         function renderFavorites() {
             const container = document.getElementById('favoritesItems');
             const empty = document.getElementById('favoritesEmpty');
@@ -682,7 +679,6 @@
 
             empty.style.display = 'none';
 
-            // Показываем загрузку
             container.innerHTML = favorites.map(id => `
                 <div class="product-card" id="fav-${id}">
                     <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:rgba(60,130,60,0.02);">
@@ -694,7 +690,6 @@
                 </div>
             `).join('');
 
-            // Загружаем данные для каждого товара
             favorites.forEach(async id => {
                 try {
                     const response = await fetch(`${API_URL}/products/${id}/`);
@@ -716,7 +711,6 @@
                             `;
                         }
                     } else {
-                        // Если товар не найден — удаляем из избранного
                         const index = favorites.indexOf(id);
                         if (index > -1) {
                             favorites.splice(index, 1);
@@ -737,10 +731,6 @@
                 }
             });
         }
-
-        // ============================================================
-        // ОСТАЛЬНЫЕ ФУНКЦИИ
-        // ============================================================
 
         function renderPagination() {
             const container = document.getElementById('pagination');

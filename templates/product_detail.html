@@ -8,21 +8,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
     <style>
-        /* ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТАРОГО ВИДА */
         .product-detail {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 48px;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 40px;
             border: 1px solid rgba(60, 130, 60, 0.06);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
         }
-
         .product-image {
             width: 100%;
             height: 420px;
@@ -36,24 +33,20 @@
             overflow: hidden;
             border: 1px solid rgba(60, 130, 60, 0.04);
         }
-
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             padding: 20px;
         }
-
         .product-image i {
             opacity: 0.25;
         }
-
         .product-info {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .product-brand {
             font-size: 0.75rem;
             color: #8aaa8a;
@@ -61,7 +54,6 @@
             letter-spacing: 2px;
             font-weight: 600;
         }
-
         .product-name {
             font-size: 2.2rem;
             font-weight: 700;
@@ -69,7 +61,6 @@
             line-height: 1.15;
             letter-spacing: -0.5px;
         }
-
         .product-price {
             font-size: 2.4rem;
             font-weight: 800;
@@ -79,14 +70,12 @@
             gap: 16px;
             margin: 4px 0;
         }
-
         .product-price .old {
             font-size: 1.5rem;
             color: #8aaa8a;
             text-decoration: line-through;
             font-weight: 400;
         }
-
         .product-price .discount-badge {
             font-size: 0.85rem;
             background: #c47a6a;
@@ -95,14 +84,12 @@
             border-radius: 50px;
             font-weight: 600;
         }
-
         .product-stock {
             font-size: 0.95rem;
             color: #4a8a4a;
             font-weight: 500;
             padding: 6px 0;
         }
-
         .product-description {
             font-size: 1rem;
             color: #4a6a4a;
@@ -112,7 +99,6 @@
             border-top: 1px solid rgba(60, 130, 60, 0.06);
             border-bottom: 1px solid rgba(60, 130, 60, 0.06);
         }
-
         .product-specs {
             background: rgba(60, 130, 60, 0.04);
             border-radius: 14px;
@@ -120,7 +106,6 @@
             margin: 4px 0;
             border: 1px solid rgba(60, 130, 60, 0.04);
         }
-
         .product-specs h3 {
             font-size: 0.9rem;
             font-weight: 600;
@@ -128,42 +113,35 @@
             margin-bottom: 12px;
             letter-spacing: 0.3px;
         }
-
         .product-specs .spec-item {
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
             border-bottom: 1px solid rgba(60, 130, 60, 0.05);
         }
-
         .product-specs .spec-item:last-child {
             border-bottom: none;
         }
-
         .product-specs .spec-key {
             color: #8aaa8a;
             font-size: 0.85rem;
         }
-
         .product-specs .spec-value {
             color: #1a3a1a;
             font-size: 0.85rem;
             font-weight: 500;
         }
-
         .product-actions {
             display: flex;
             gap: 12px;
             margin-top: 12px;
         }
-
         .product-actions .btn {
             padding: 14px 36px;
             font-size: 1rem;
             border-radius: 50px;
             font-weight: 600;
         }
-
         .btn-like {
             padding: 14px 22px;
             background: rgba(255, 255, 255, 0.4);
@@ -177,58 +155,45 @@
             align-items: center;
             justify-content: center;
         }
-
         .btn-like:hover {
             border-color: #c47a6a;
             color: #c47a6a;
             background: rgba(196, 122, 106, 0.05);
         }
-
         .btn-like.liked {
             border-color: #c47a6a;
             color: #c47a6a;
             background: rgba(196, 122, 106, 0.08);
         }
-
-        /* РЕЙТИНГ */
         .rating-stars {
             display: flex;
             align-items: center;
             gap: 10px;
             margin: 4px 0;
         }
-
         .stars {
             display: flex;
             gap: 3px;
             font-size: 1.3rem;
         }
-
         .stars .filled {
             color: #f5b342;
         }
-
         .stars .half {
             color: #f5b342;
-            position: relative;
         }
-
         .stars .empty {
             color: #ddd;
         }
-
         .rating-number {
             font-size: 1.1rem;
             font-weight: 600;
             color: #1a3a1a;
         }
-
         .rating-count {
             font-size: 0.9rem;
             color: #8aaa8a;
         }
-
-        /* ОТЗЫВЫ */
         .reviews-section {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
@@ -238,68 +203,56 @@
             border: 1px solid rgba(60, 130, 60, 0.06);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
         }
-
         .reviews-section h2 {
             font-size: 1.3rem;
             font-weight: 700;
             color: #1a3a1a;
             margin-bottom: 20px;
         }
-
         .review-item {
             padding: 16px 0;
             border-bottom: 1px solid rgba(60, 130, 60, 0.06);
         }
-
         .review-item:last-child {
             border-bottom: none;
         }
-
         .review-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 4px;
         }
-
         .review-user {
             font-weight: 600;
             color: #1a3a1a;
         }
-
         .review-date {
             font-size: 0.8rem;
             color: #8aaa8a;
         }
-
         .review-stars {
             font-size: 0.95rem;
             color: #f5b342;
         }
-
         .review-text {
             color: #4a6a4a;
             line-height: 1.6;
             margin-top: 4px;
         }
-
         .review-form {
             margin-top: 24px;
             padding-top: 24px;
             border-top: 1px solid rgba(60, 130, 60, 0.06);
         }
-
         .review-form h3 {
             font-size: 1.1rem;
             font-weight: 600;
             color: #1a3a1a;
             margin-bottom: 12px;
         }
-
         .review-form .form-group {
             margin-bottom: 12px;
         }
-
         .review-form .form-group label {
             display: block;
             font-size: 0.85rem;
@@ -307,7 +260,6 @@
             margin-bottom: 4px;
             font-weight: 500;
         }
-
         .review-form .form-group select,
         .review-form .form-group textarea {
             width: 100%;
@@ -321,37 +273,30 @@
             font-family: 'Inter', sans-serif;
             color: #1a2a1a;
         }
-
         .review-form .form-group select:focus,
         .review-form .form-group textarea:focus {
             border-color: #4a8a4a;
             background: rgba(255, 255, 255, 0.6);
             box-shadow: 0 0 0 4px rgba(74, 138, 74, 0.06);
         }
-
         .review-form .form-group textarea {
             min-height: 80px;
             resize: vertical;
         }
-
-        /* ПОХОЖИЕ ТОВАРЫ */
         .related-section {
             margin: 40px 0;
         }
-
         .related-section h2 {
             font-size: 1.3rem;
             font-weight: 700;
             color: #1a3a1a;
             margin-bottom: 20px;
         }
-
         .related-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
-
         .related-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
@@ -364,14 +309,12 @@
             color: inherit;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
-
         .related-card:hover {
             transform: translateY(-4px);
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             border-color: rgba(74, 138, 74, 0.10);
         }
-
         .related-card .image {
             height: 120px;
             background: rgba(60, 130, 60, 0.02);
@@ -384,14 +327,12 @@
             margin-bottom: 12px;
             overflow: hidden;
         }
-
         .related-card .image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             padding: 8px;
         }
-
         .related-card .name {
             font-weight: 600;
             font-size: 0.9rem;
@@ -403,13 +344,11 @@
             overflow: hidden;
             min-height: 40px;
         }
-
         .related-card .price {
             font-weight: 700;
             color: #1a3a1a;
             font-size: 1.05rem;
         }
-
         .related-card .old-price {
             font-size: 0.8rem;
             color: #8aaa8a;
@@ -417,13 +356,11 @@
             margin-left: 6px;
             font-weight: 400;
         }
-
         .related-card .stars {
             font-size: 0.7rem;
             color: #f5b342;
             margin-top: 4px;
         }
-
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -435,13 +372,10 @@
             transition: 0.3s;
             font-weight: 500;
         }
-
         .back-link:hover {
             color: #4a8a4a;
             transform: translateX(-4px);
         }
-
-        /* TOAST */
         .toast {
             position: fixed;
             bottom: 24px;
@@ -460,110 +394,41 @@
             background: #1a3a1a;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
-
         @keyframes toastIn {
             from { opacity: 0; transform: translateY(20px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
-
         .toast.success { background: #4a8a4a; }
         .toast.error { background: #c47a6a; }
         .toast.info { background: #4a8a4a; }
-
-        /* RESPONSIVE */
         @media (max-width: 820px) {
             .product-detail {
                 grid-template-columns: 1fr;
                 padding: 24px;
                 gap: 24px;
             }
-
-            .product-image {
-                height: 280px;
-            }
-
-            .product-name {
-                font-size: 1.6rem;
-            }
-
-            .product-price {
-                font-size: 1.8rem;
-                flex-wrap: wrap;
-            }
-
-            .product-actions .btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-
-            .related-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            }
+            .product-image { height: 280px; }
+            .product-name { font-size: 1.6rem; }
+            .product-price { font-size: 1.8rem; flex-wrap: wrap; }
+            .product-actions .btn { padding: 12px 24px; font-size: 0.9rem; }
+            .related-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
         }
-
         @media (max-width: 600px) {
-            .product-detail {
-                padding: 16px;
-                gap: 16px;
-            }
-
-            .product-image {
-                height: 200px;
-                font-size: 3rem;
-            }
-
-            .product-name {
-                font-size: 1.3rem;
-            }
-
-            .product-price {
-                font-size: 1.4rem;
-            }
-
-            .product-actions {
-                flex-wrap: wrap;
-            }
-
-            .product-actions .btn {
-                flex: 1;
-                justify-content: center;
-                padding: 10px 16px;
-                font-size: 0.85rem;
-            }
-
-            .reviews-section {
-                padding: 20px;
-            }
-
-            .related-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
+            .product-detail { padding: 16px; gap: 16px; }
+            .product-image { height: 200px; font-size: 3rem; }
+            .product-name { font-size: 1.3rem; }
+            .product-price { font-size: 1.4rem; }
+            .product-actions { flex-wrap: wrap; }
+            .product-actions .btn { flex: 1; justify-content: center; padding: 10px 16px; font-size: 0.85rem; }
+            .reviews-section { padding: 20px; }
+            .related-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
         }
-
         @media (max-width: 420px) {
-            .product-image {
-                height: 160px;
-                font-size: 2.5rem;
-            }
-
-            .product-name {
-                font-size: 1.1rem;
-            }
-
-            .product-price {
-                font-size: 1.2rem;
-            }
-
-            .product-actions .btn {
-                font-size: 0.75rem;
-                padding: 8px 12px;
-            }
-
-            .btn-like {
-                padding: 8px 14px;
-                font-size: 1rem;
-            }
+            .product-image { height: 160px; font-size: 2.5rem; }
+            .product-name { font-size: 1.1rem; }
+            .product-price { font-size: 1.2rem; }
+            .product-actions .btn { font-size: 0.75rem; padding: 8px 12px; }
+            .btn-like { padding: 8px 14px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -606,7 +471,6 @@
                     {% endif %}
                 </div>
 
-                <!-- РЕЙТИНГ -->
                 <div class="rating-stars">
                     <div class="stars">
                         {% for i in "12345"|make_list %}
@@ -656,7 +520,7 @@
             </div>
         </div>
 
-        <!-- ОТЗЫВЫ -->
+        <!-- REVIEWS -->
         <div class="reviews-section" id="reviews">
             <h2>💬 Отзывы</h2>
 
@@ -711,7 +575,7 @@
             </div>
         </div>
 
-        <!-- ПОХОЖИЕ -->
+        <!-- RELATED -->
         {% if related_products %}
         <div class="related-section">
             <h2>🔄 Похожие товары</h2>
@@ -789,7 +653,10 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        const API_URL = 'http://127.0.0.1:8000/api/v1';
+        // ============================================================
+        // ⚠️ ВАЖНО: API_URL ДЛЯ ПРОДУКШИВНА
+        // ============================================================
+        const API_URL = 'https://laptopstore-2.onrender.com/api/v1';
         let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 
         function showToast(message, type = 'success') {
