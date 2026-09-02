@@ -15,18 +15,10 @@
 
     <!-- ФОН -->
     <div class="bg-layer"></div>
+    <div class="leaf">🌿</div><div class="leaf">🍃</div><div class="leaf">🌱</div>
+    <div class="leaf">🌿</div><div class="leaf">🍃</div><div class="leaf">🌱</div>
+    <div class="leaf">🌿</div><div class="leaf">🍃</div>
 
-    <!-- Листочки -->
-    <div class="leaf">🌿</div>
-    <div class="leaf">🍃</div>
-    <div class="leaf">🌱</div>
-    <div class="leaf">🌿</div>
-    <div class="leaf">🍃</div>
-    <div class="leaf">🌱</div>
-    <div class="leaf">🌿</div>
-    <div class="leaf">🍃</div>
-
-    <!-- Дерево -->
     <svg class="tree-bg" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M200 600L200 380C225 355 270 320 290 270C310 220 295 175 260 150C225 125 200 140 200 150C200 140 175 125 140 150C105 175 90 220 110 270C130 320 175 355 200 380L200 600Z" fill="rgba(60,130,60,0.06)"/>
         <circle cx="200" cy="130" r="90" fill="rgba(60,130,60,0.04)"/>
@@ -38,49 +30,32 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="header-inner">
-            <a class="logo" href="/">
-                <i class="fas fa-leaf"></i>
-                Laptop<span>Store</span>
-            </a>
-
+            <a class="logo" href="/"><i class="fas fa-leaf"></i> Laptop<span>Store</span></a>
             <div class="search-wrapper">
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Поиск..." onkeyup="if(event.key==='Enter') loadProducts()">
             </div>
-
             <nav class="nav">
                 <a class="nav-link" onclick="loadProducts()"><i class="fas fa-home"></i></a>
-                <a class="nav-link" onclick="openModal('favoritesModal')">
-                    <i class="fas fa-heart"></i>
-                    <span class="badge-count" id="favBadge">0</span>
-                </a>
-                <a class="nav-link" onclick="openModal('cartModal')">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="badge-count" id="cartBadge">0</span>
-                </a>
+                <a class="nav-link" onclick="openModal('favoritesModal')"><i class="fas fa-heart"></i><span class="badge-count" id="favBadge">0</span></a>
+                <a class="nav-link" onclick="openModal('cartModal')"><i class="fas fa-shopping-bag"></i><span class="badge-count" id="cartBadge">0</span></a>
                 <a class="nav-link" onclick="openModal('ordersModal')"><i class="fas fa-box"></i></a>
-
                 <div class="auth-buttons" id="authButtons">
                     <button class="btn btn-outline btn-sm" onclick="openModal('loginModal')">Войти</button>
                     <button class="btn btn-primary btn-sm" onclick="openModal('registerModal')">Регистрация</button>
                 </div>
-
                 <div class="user-info" id="userInfo" style="display:none;">
                     <span class="user-name" id="userName">User</span>
                     <div class="user-avatar" id="userAvatar">U</div>
                     <button class="btn btn-danger btn-sm" onclick="logout()">Выйти</button>
                 </div>
             </nav>
-
             <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- MOBILE -->
     <div class="mobile-menu" id="mobileMenu">
         <a class="mobile-link" onclick="loadProducts(); closeMobileMenu()"><i class="fas fa-home"></i> Главная</a>
         <a class="mobile-link" onclick="openModal('favoritesModal'); closeMobileMenu()"><i class="fas fa-heart"></i> Избранное <span class="badge-count" id="favBadgeMobile">0</span></a>
@@ -98,135 +73,59 @@
             <h1>Выбери свой <span>ноутбук</span></h1>
             <p>Современные технологии для работы и творчества</p>
             <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="number" id="productsCount">0</div>
-                    <div class="label">Моделей</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="number">12+</div>
-                    <div class="label">Брендов</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="number">−30%</div>
-                    <div class="label">Скидки</div>
-                </div>
+                <div class="hero-stat"><div class="number" id="productsCount">0</div><div class="label">Моделей</div></div>
+                <div class="hero-stat"><div class="number">12+</div><div class="label">Брендов</div></div>
+                <div class="hero-stat"><div class="number">−30%</div><div class="label">Скидки</div></div>
             </div>
         </div>
     </section>
 
     <!-- MAIN -->
     <div class="container">
-
         <div class="filters">
-            <div class="filter-group">
-                <label>Категория</label>
-                <select id="categoryFilter" onchange="loadProducts()">
-                    <option value="">Все</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Бренд</label>
-                <select id="brandFilter" onchange="loadProducts()">
-                    <option value="">Все</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Сортировка</label>
-                <select id="sortFilter" onchange="loadProducts()">
-                    <option value="-created_at">Новинки</option>
-                    <option value="price">Цена ↑</option>
-                    <option value="-price">Цена ↓</option>
-                    <option value="name">По названию</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Цена</label>
-                <input type="number" id="priceMin" placeholder="от" onchange="loadProducts()">
-                <input type="number" id="priceMax" placeholder="до" onchange="loadProducts()">
-            </div>
+            <div class="filter-group"><label>Категория</label><select id="categoryFilter" onchange="loadProducts()"><option value="">Все</option></select></div>
+            <div class="filter-group"><label>Бренд</label><select id="brandFilter" onchange="loadProducts()"><option value="">Все</option></select></div>
+            <div class="filter-group"><label>Сортировка</label><select id="sortFilter" onchange="loadProducts()"><option value="-created_at">Новинки</option><option value="price">Цена ↑</option><option value="-price">Цена ↓</option><option value="name">По названию</option></select></div>
+            <div class="filter-group"><label>Цена</label><input type="number" id="priceMin" placeholder="от" onchange="loadProducts()"><input type="number" id="priceMax" placeholder="до" onchange="loadProducts()"></div>
             <button class="filter-reset" onclick="resetFilters()">Сброс</button>
         </div>
-
-        <div id="productsContainer">
-            <div class="loading">
-                <i class="fas fa-spinner"></i>
-                <p>Загрузка товаров...</p>
-            </div>
-        </div>
-
+        <div id="productsContainer"><div class="loading"><i class="fas fa-spinner"></i><p>Загрузка товаров...</p></div></div>
         <div class="pagination" id="pagination"></div>
     </div>
 
     <!-- MODALS -->
     <div class="modal" id="loginModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Вход</h2>
-                <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
-            </div>
+            <div class="modal-header"><h2>Вход</h2><button class="modal-close" onclick="closeModal('loginModal')">&times;</button></div>
             <form id="loginForm">
-                <div class="form-group">
-                    <label>Имя пользователя</label>
-                    <input type="text" id="loginUsername" required placeholder="admin" value="admin">
-                </div>
-                <div class="form-group">
-                    <label>Пароль</label>
-                    <input type="password" id="loginPassword" required placeholder="••••••••" value="admin123">
-                </div>
+                <div class="form-group"><label>Имя пользователя</label><input type="text" id="loginUsername" required placeholder="admin" value="admin"></div>
+                <div class="form-group"><label>Пароль</label><input type="password" id="loginPassword" required placeholder="••••••••" value="admin123"></div>
                 <button type="submit" class="btn btn-primary btn-block">Войти</button>
             </form>
-            <div class="form-link">
-                Нет аккаунта? <a onclick="closeModal('loginModal'); openModal('registerModal')">Регистрация</a>
-            </div>
+            <div class="form-link">Нет аккаунта? <a onclick="closeModal('loginModal'); openModal('registerModal')">Регистрация</a></div>
         </div>
     </div>
 
     <div class="modal" id="registerModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Регистрация</h2>
-                <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
-            </div>
+            <div class="modal-header"><h2>Регистрация</h2><button class="modal-close" onclick="closeModal('registerModal')">&times;</button></div>
             <form id="registerForm">
-                <div class="form-group">
-                    <label>Имя пользователя</label>
-                    <input type="text" id="regUsername" required placeholder="username">
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="regEmail" required placeholder="your@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Телефон</label>
-                    <input type="tel" id="regPhone" placeholder="+996700123456">
-                </div>
-                <div class="form-group">
-                    <label>Пароль</label>
-                    <input type="password" id="regPassword" required placeholder="Минимум 8 символов">
-                </div>
-                <div class="form-group">
-                    <label>Подтверждение</label>
-                    <input type="password" id="regPassword2" required>
-                </div>
+                <div class="form-group"><label>Имя пользователя</label><input type="text" id="regUsername" required placeholder="username"></div>
+                <div class="form-group"><label>Email</label><input type="email" id="regEmail" required placeholder="your@email.com"></div>
+                <div class="form-group"><label>Телефон</label><input type="tel" id="regPhone" placeholder="+996700123456"></div>
+                <div class="form-group"><label>Пароль</label><input type="password" id="regPassword" required placeholder="Минимум 8 символов"></div>
+                <div class="form-group"><label>Подтверждение</label><input type="password" id="regPassword2" required></div>
                 <button type="submit" class="btn btn-success btn-block">Зарегистрироваться</button>
             </form>
-            <div class="form-link">
-                Уже есть аккаунт? <a onclick="closeModal('registerModal'); openModal('loginModal')">Войти</a>
-            </div>
+            <div class="form-link">Уже есть аккаунт? <a onclick="closeModal('registerModal'); openModal('loginModal')">Войти</a></div>
         </div>
     </div>
 
     <div class="modal" id="cartModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Корзина</h2>
-                <button class="modal-close" onclick="closeModal('cartModal')">&times;</button>
-            </div>
+            <div class="modal-header"><h2>Корзина</h2><button class="modal-close" onclick="closeModal('cartModal')">&times;</button></div>
             <div id="cartItems"></div>
-            <div id="cartEmpty" class="empty-state">
-                <i class="fas fa-shopping-bag"></i>
-                <p>Корзина пуста</p>
-            </div>
+            <div id="cartEmpty" class="empty-state"><i class="fas fa-shopping-bag"></i><p>Корзина пуста</p></div>
             <div id="cartFooter" style="display:none;">
                 <div class="cart-total">Итого: $<span id="cartTotal">0</span></div>
                 <button class="btn btn-success btn-block" onclick="showCheckout()" style="margin-top:12px;">Оформить заказ</button>
@@ -236,51 +135,27 @@
 
     <div class="modal" id="favoritesModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Избранное</h2>
-                <button class="modal-close" onclick="closeModal('favoritesModal')">&times;</button>
-            </div>
+            <div class="modal-header"><h2>Избранное</h2><button class="modal-close" onclick="closeModal('favoritesModal')">&times;</button></div>
             <div id="favoritesItems"></div>
-            <div id="favoritesEmpty" class="empty-state">
-                <i class="fas fa-heart"></i>
-                <p>Нет избранных товаров</p>
-            </div>
+            <div id="favoritesEmpty" class="empty-state"><i class="fas fa-heart"></i><p>Нет избранных товаров</p></div>
         </div>
     </div>
 
     <div class="modal" id="ordersModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Мои заказы</h2>
-                <button class="modal-close" onclick="closeModal('ordersModal')">&times;</button>
-            </div>
+            <div class="modal-header"><h2>Мои заказы</h2><button class="modal-close" onclick="closeModal('ordersModal')">&times;</button></div>
             <div id="ordersItems"></div>
-            <div id="ordersEmpty" class="empty-state">
-                <i class="fas fa-box"></i>
-                <p>У вас пока нет заказов</p>
-            </div>
+            <div id="ordersEmpty" class="empty-state"><i class="fas fa-box"></i><p>У вас пока нет заказов</p></div>
         </div>
     </div>
 
     <div class="modal" id="checkoutModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Оформление заказа</h2>
-                <button class="modal-close" onclick="closeModal('checkoutModal')">&times;</button>
-            </div>
+            <div class="modal-header"><h2>Оформление заказа</h2><button class="modal-close" onclick="closeModal('checkoutModal')">&times;</button></div>
             <form id="checkoutForm">
-                <div class="form-group">
-                    <label>Адрес доставки</label>
-                    <input type="text" id="shippingAddress" required placeholder="Город, улица, дом">
-                </div>
-                <div class="form-group">
-                    <label>Телефон</label>
-                    <input type="tel" id="orderPhone" required placeholder="+996700123456">
-                </div>
-                <div class="form-group">
-                    <label>Примечания</label>
-                    <input type="text" id="orderNotes" placeholder="Дополнительная информация">
-                </div>
+                <div class="form-group"><label>Адрес доставки</label><input type="text" id="shippingAddress" required placeholder="Город, улица, дом"></div>
+                <div class="form-group"><label>Телефон</label><input type="tel" id="orderPhone" required placeholder="+996700123456"></div>
+                <div class="form-group"><label>Примечания</label><input type="text" id="orderNotes" placeholder="Дополнительная информация"></div>
                 <div class="cart-total">Итого: $<span id="checkoutTotal">0</span></div>
                 <button type="submit" class="btn btn-success btn-block" style="margin-top:12px;">Подтвердить заказ</button>
             </form>
@@ -290,61 +165,15 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
-            <div>
-                <h3>🌿 LaptopStore</h3>
-                <p>Современные ноутбуки для работы, учёбы и творчества. Лучшие бренды по доступным ценам.</p>
-                <p style="margin-top:8px;">📍 г. Бишкек, ул. Ленина 123</p>
-                <p style="margin-top:4px;">📞 +996 700 123 456</p>
-                <p>📧 info@laptopstore.com</p>
-            </div>
-            <div>
-                <h3>📂 Категории</h3>
-                <a href="/">Игровые ноутбуки</a>
-                <a href="/">Ультрабуки</a>
-                <a href="/">Бизнес-ноутбуки</a>
-                <a href="/">Бюджетные</a>
-                <a href="/">Трансформеры</a>
-            </div>
-            <div>
-                <h3>📋 Информация</h3>
-                <a href="/">О нас</a>
-                <a href="/">Доставка и оплата</a>
-                <a href="/">Гарантия</a>
-                <a href="/">Контакты</a>
-                <a href="/">Вакансии</a>
-            </div>
-            <div>
-                <h3>🌐 Мы в соцсетях</h3>
-                <div class="social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                </div>
-                <div style="margin-top:16px;">
-                    <p style="font-size:0.85rem;color:#5a7a5a;">
-                        <i class="fas fa-clock"></i> Пн-Пт: 9:00 - 20:00<br>
-                        <i class="fas fa-clock"></i> Сб-Вс: 10:00 - 18:00
-                    </p>
-                </div>
-            </div>
+            <div><h3>🌿 LaptopStore</h3><p>Современные ноутбуки для работы, учёбы и творчества.</p><p style="margin-top:8px;">📍 г. Бишкек, ул. Ленина 123</p><p>📞 +996 700 123 456</p><p>📧 info@laptopstore.com</p></div>
+            <div><h3>📂 Категории</h3><a href="/">Игровые ноутбуки</a><a href="/">Ультрабуки</a><a href="/">Бизнес-ноутбуки</a><a href="/">Бюджетные</a><a href="/">Трансформеры</a></div>
+            <div><h3>📋 Информация</h3><a href="/">О нас</a><a href="/">Доставка и оплата</a><a href="/">Гарантия</a><a href="/">Контакты</a><a href="/">Вакансии</a></div>
+            <div><h3>🌐 Мы в соцсетях</h3><div class="social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-telegram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2024 LaptopStore. Все права защищены.</p>
-            <p style="font-size:0.75rem;color:#4a6a4a;margin-top:4px;">
-                Сделано с ❤️ в Кыргызстане
-            </p>
-        </div>
+        <div class="footer-bottom"><p>© 2024 LaptopStore. Все права защищены.</p><p style="font-size:0.75rem;color:#4a6a4a;margin-top:4px;">Сделано с ❤️ в Кыргызстане</p></div>
     </footer>
 
-    <!-- ============================================
-    JAVASCRIPT
-    ============================================ -->
     <script>
-        // ============================================================
-        // API_URL ДЛЯ ПРОДУКШИВНА
-        // ============================================================
         const API_URL = 'https://laptopstore-2.onrender.com/api/v1';
         let currentUser = null;
         let currentPage = 1;
@@ -359,11 +188,7 @@
             toast.className = `toast ${type}`;
             toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i> ${message}`;
             document.body.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transition = 'opacity 0.4s';
-                setTimeout(() => toast.remove(), 400);
-            }, 3000);
+            setTimeout(() => { toast.remove(); }, 3000);
         }
 
         function openModal(id) {
@@ -428,30 +253,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('loginForm');
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    loginUser();
-                });
-            }
-
-            const registerForm = document.getElementById('registerForm');
-            if (registerForm) {
-                registerForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    registerUser();
-                });
-            }
-
-            const checkoutForm = document.getElementById('checkoutForm');
-            if (checkoutForm) {
-                checkoutForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    createOrder();
-                });
-            }
-
+            document.getElementById('loginForm').addEventListener('submit', function(e) { e.preventDefault(); loginUser(); });
+            document.getElementById('registerForm').addEventListener('submit', function(e) { e.preventDefault(); registerUser(); });
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) { e.preventDefault(); createOrder(); });
             const token = localStorage.getItem('access_token');
             if (token) {
                 currentUser = { username: 'User' };
@@ -466,19 +270,13 @@
         async function loginUser() {
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value;
-
-            if (!username || !password) {
-                showToast('Заполните все поля', 'error');
-                return;
-            }
-
+            if (!username || !password) { showToast('Заполните все поля', 'error'); return; }
             try {
                 const response = await fetch(`${API_URL}/auth/login/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
                 });
-
                 if (response.ok) {
                     const result = await response.json();
                     localStorage.setItem('access_token', result.access);
@@ -500,17 +298,8 @@
         async function registerUser() {
             const password = document.getElementById('regPassword').value;
             const password2 = document.getElementById('regPassword2').value;
-
-            if (password !== password2) {
-                showToast('Пароли не совпадают', 'error');
-                return;
-            }
-
-            if (password.length < 8) {
-                showToast('Пароль минимум 8 символов', 'error');
-                return;
-            }
-
+            if (password !== password2) { showToast('Пароли не совпадают', 'error'); return; }
+            if (password.length < 8) { showToast('Пароль минимум 8 символов', 'error'); return; }
             const data = {
                 username: document.getElementById('regUsername').value.trim(),
                 email: document.getElementById('regEmail').value.trim(),
@@ -518,14 +307,12 @@
                 password: password,
                 password2: password2
             };
-
             try {
                 const response = await fetch(`${API_URL}/auth/register/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-
                 if (response.ok) {
                     showToast('✅ Регистрация успешна! Войдите.');
                     closeModal('registerModal');
@@ -533,8 +320,7 @@
                     openModal('loginModal');
                 } else {
                     const error = await response.json();
-                    const msg = Object.values(error).flat()[0] || 'Ошибка';
-                    showToast(msg, 'error');
+                    showToast(Object.values(error).flat()[0] || 'Ошибка', 'error');
                 }
             } catch (error) {
                 showToast('Ошибка регистрации', 'error');
@@ -550,9 +336,7 @@
             loadProducts();
         }
 
-        function getToken() {
-            return localStorage.getItem('access_token');
-        }
+        function getToken() { return localStorage.getItem('access_token'); }
 
         async function loadCategories() {
             try {
@@ -590,7 +374,6 @@
         async function loadProducts() {
             const container = document.getElementById('productsContainer');
             container.innerHTML = `<div class="loading"><i class="fas fa-spinner"></i><p>Загрузка товаров...</p></div>`;
-
             try {
                 const category = document.getElementById('categoryFilter').value;
                 const brand = document.getElementById('brandFilter').value;
@@ -598,7 +381,6 @@
                 const search = document.getElementById('searchInput').value;
                 const priceMin = document.getElementById('priceMin').value;
                 const priceMax = document.getElementById('priceMax').value;
-
                 let url = `${API_URL}/products/?page=${currentPage}`;
                 if (category) url += `&category=${category}`;
                 if (brand) url += `&brand=${brand}`;
@@ -606,116 +388,73 @@
                 if (search) url += `&search=${search}`;
                 if (priceMin) url += `&price_min=${priceMin}`;
                 if (priceMax) url += `&price_max=${priceMax}`;
-
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Ошибка загрузки');
-
                 const data = await response.json();
                 totalPages = Math.ceil(data.count / 10) || 1;
                 document.getElementById('productsCount').textContent = data.count || 0;
                 renderProducts(data.results || []);
                 renderPagination();
-
             } catch (error) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p>Ошибка загрузки товаров</p>
-                        <button class="btn btn-primary" onclick="loadProducts()" style="margin-top:12px;">Повторить</button>
-                    </div>
-                `;
+                container.innerHTML = `<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Ошибка загрузки товаров</p><button class="btn btn-primary" onclick="loadProducts()" style="margin-top:12px;">Повторить</button></div>`;
                 showToast('Ошибка загрузки товаров', 'error');
             }
         }
 
-        // ============================================================
-        // RENDER PRODUCTS — С КАРТИНКАМИ
-        // ============================================================
         function renderProducts(products) {
             const container = document.getElementById('productsContainer');
-
             if (!products || products.length === 0) {
                 container.innerHTML = `<div class="empty-state"><i class="fas fa-search"></i><p>Товары не найдены</p></div>`;
                 return;
             }
-
             container.innerHTML = `
                 <div class="products-grid">
-                    ${products.map(p => {
-                        // КАРТИНКИ ПО SLUG ТОВАРА
-                        const images = {
-                            'asus-rog-strix-g16': 'https://i.imgur.com/ASUS_ROG_Strix_G16.jpg',
-                            'apple-macbook-air-m2': 'https://i.imgur.com/Apple_MacBook_Air_M2.jpg',
-                            'lenovo-thinkpad-x1-carbon': 'https://i.imgur.com/Lenovo_ThinkPad_X1.jpg',
-                            'dell-xps-16': 'https://i.imgur.com/Dell_XPS_16.jpg',
-                            'msi-stealth-17': 'https://i.imgur.com/MSI_Stealth_17.jpg',
-                            'hp-spectre-x360': 'https://i.imgur.com/HP_Spectre_x360.jpg',
-                            'samsung-galaxy-book-3-ultra': 'https://i.imgur.com/Samsung_Galaxy_Book.jpg',
-                            'acer-predator-helios-16': 'https://i.imgur.com/Acer_Predator.jpg',
-                            'asus-zenbook-14-oled': 'https://i.imgur.com/Asus_Zenbook.jpg',
-                            'lenovo-legion-pro-7i': 'https://i.imgur.com/Lenovo_Legion.jpg',
-                            'razer-blade-16': 'https://i.imgur.com/Razer_Blade.jpg',
-                        };
-
-                        const imgUrl = images[p.slug] || 'https://i.imgur.com/default-laptop.jpg';
-
-                        return `
-                            <div class="product-card">
-                                <a href="/product/${p.slug}/" style="text-decoration:none;color:inherit;display:block;">
-                                    <div class="product-image" style="height:190px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;overflow:hidden;">
-                                        <img src="${imgUrl}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:10px;"
-                                             onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\\'fas fa-laptop\\' style=\\'font-size:4rem;color:#8aaa8a;\\'></i>'">
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="product-name">${p.name || ''}</div>
-                                        <div class="product-price">
-                                            $${p.final_price || p.price || '0'}
-                                            ${p.discount_price ? `<span class="old">$${p.price}</span>` : ''}
-                                        </div>
-                                        <div class="product-stock">${p.stock > 0 ? '✅ В наличии' : '❌ Нет в наличии'}</div>
-                                    </div>
-                                </a>
-                                <div class="product-actions">
-                                    <button class="btn btn-primary" onclick="event.stopPropagation(); addToCart(${p.id}, '${p.name.replace(/'/g, "\\'")}', ${p.final_price || p.price})">
-                                        <i class="fas fa-shopping-bag"></i> В корзину
-                                    </button>
-                                    <button class="btn-like ${favorites.includes(p.id) ? 'liked' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id})">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
+                    ${products.map(p => `
+                        <div class="product-card">
+                            <a href="/product/${p.slug}/" style="text-decoration:none;color:inherit;display:block;">
+                                <div class="product-image" style="height:190px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;font-size:4rem;color:#8aaa8a;">
+                                    <i class="fas fa-laptop"></i>
                                 </div>
+                                <div class="product-info">
+                                    <div class="product-name">${p.name || ''}</div>
+                                    <div class="product-price">
+                                        $${p.final_price || p.price || '0'}
+                                        ${p.discount_price ? `<span class="old">$${p.price}</span>` : ''}
+                                    </div>
+                                    <div class="product-stock">${p.stock > 0 ? '✅ В наличии' : '❌ Нет в наличии'}</div>
+                                </div>
+                            </a>
+                            <div class="product-actions">
+                                <button class="btn btn-primary" onclick="event.stopPropagation(); addToCart(${p.id}, '${p.name.replace(/'/g, "\\'")}', ${p.final_price || p.price})">
+                                    <i class="fas fa-shopping-bag"></i> В корзину
+                                </button>
+                                <button class="btn-like ${favorites.includes(p.id) ? 'liked' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id})">
+                                    <i class="fas fa-heart"></i>
+                                </button>
                             </div>
-                        `;
-                    }).join('')}
+                        </div>
+                    `).join('')}
                 </div>
             `;
         }
 
-        // ============================================================
-        // RENDER FAVORITES — С КАРТИНКАМИ
-        // ============================================================
         function renderFavorites() {
             const container = document.getElementById('favoritesItems');
             const empty = document.getElementById('favoritesEmpty');
-
             if (favorites.length === 0) {
                 container.innerHTML = '';
                 empty.style.display = 'block';
                 return;
             }
-
             empty.style.display = 'none';
-
             container.innerHTML = favorites.map(id => `
                 <div class="product-card" id="fav-${id}">
-                    <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;overflow:hidden;">
-                        <i class="fas fa-spinner fa-spin" style="font-size:2rem;color:#8aaa8a;"></i>
+                    <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;font-size:3rem;color:#8aaa8a;">
+                        <i class="fas fa-spinner fa-spin"></i>
                     </div>
-                    <div class="product-info">
-                        <div class="product-name" style="color:#8aaa8a;">Загрузка...</div>
-                    </div>
+                    <div class="product-info"><div class="product-name" style="color:#8aaa8a;">Загрузка...</div></div>
                 </div>
             `).join('');
-
             favorites.forEach(async id => {
                 try {
                     const response = await fetch(`${API_URL}/products/${id}/`);
@@ -723,20 +462,9 @@
                         const p = await response.json();
                         const card = document.getElementById(`fav-${id}`);
                         if (card) {
-                            const images = {
-                                'asus-rog-strix-g16': 'https://i.imgur.com/ASUS_ROG_Strix_G16.jpg',
-                                'apple-macbook-air-m2': 'https://i.imgur.com/Apple_MacBook_Air_M2.jpg',
-                                'lenovo-thinkpad-x1-carbon': 'https://i.imgur.com/Lenovo_ThinkPad_X1.jpg',
-                                'dell-xps-16': 'https://i.imgur.com/Dell_XPS_16.jpg',
-                                'msi-stealth-17': 'https://i.imgur.com/MSI_Stealth_17.jpg',
-                                'hp-spectre-x360': 'https://i.imgur.com/HP_Spectre_x360.jpg',
-                            };
-                            const imgUrl = images[p.slug] || 'https://i.imgur.com/default-laptop.jpg';
-
                             card.innerHTML = `
-                                <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;overflow:hidden;">
-                                    <img src="${imgUrl}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:10px;"
-                                         onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\\'fas fa-laptop\\' style=\\'font-size:2.5rem;color:#8aaa8a;\\'></i>'">
+                                <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;font-size:3rem;color:#8aaa8a;">
+                                    <i class="fas fa-laptop"></i>
                                 </div>
                                 <div class="product-info">
                                     <div class="product-name" style="font-weight:600;font-size:0.95rem;min-height:40px;">${p.name}</div>
@@ -748,28 +476,18 @@
                             `;
                         }
                     }
-                } catch (e) {
-                    console.error(e);
-                }
+                } catch (e) { console.error(e); }
             });
         }
-
-        // ============================================================
-        // ОСТАЛЬНЫЕ ФУНКЦИИ
-        // ============================================================
 
         function renderPagination() {
             const container = document.getElementById('pagination');
             if (totalPages <= 1) { container.innerHTML = ''; return; }
-
             let html = '';
             html += `<button onclick="changePage(${currentPage - 1})" ${currentPage <= 1 ? 'disabled' : ''}><i class="fas fa-chevron-left"></i></button>`;
             for (let i = 1; i <= totalPages; i++) {
-                if (i === currentPage) {
-                    html += `<button class="active">${i}</button>`;
-                } else if (i <= 3 || i > totalPages - 3 || Math.abs(i - currentPage) <= 1) {
-                    html += `<button onclick="changePage(${i})">${i}</button>`;
-                }
+                if (i === currentPage) { html += `<button class="active">${i}</button>`; }
+                else if (i <= 3 || i > totalPages - 3 || Math.abs(i - currentPage) <= 1) { html += `<button onclick="changePage(${i})">${i}</button>`; }
             }
             html += `<button onclick="changePage(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled' : ''}><i class="fas fa-chevron-right"></i></button>`;
             container.innerHTML = html;
@@ -784,11 +502,7 @@
 
         function addToCart(id, name, price) {
             const existing = cart.find(item => item.id === id);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ id, name, price, quantity: 1 });
-            }
+            if (existing) { existing.quantity += 1; } else { cart.push({ id, name, price, quantity: 1 }); }
             localStorage.setItem('cart', JSON.stringify(cart));
             updateBadges();
             showToast(`✅ ${name} добавлен в корзину`);
@@ -805,10 +519,7 @@
             const item = cart.find(i => i.id === id);
             if (item) {
                 item.quantity += delta;
-                if (item.quantity <= 0) {
-                    removeFromCart(id);
-                    return;
-                }
+                if (item.quantity <= 0) { removeFromCart(id); return; }
                 localStorage.setItem('cart', JSON.stringify(cart));
                 renderCart();
                 updateBadges();
@@ -820,17 +531,14 @@
             const empty = document.getElementById('cartEmpty');
             const footer = document.getElementById('cartFooter');
             const totalSpan = document.getElementById('cartTotal');
-
             if (cart.length === 0) {
                 container.innerHTML = '';
                 empty.style.display = 'block';
                 footer.style.display = 'none';
                 return;
             }
-
             empty.style.display = 'none';
             footer.style.display = 'block';
-
             let total = 0;
             container.innerHTML = cart.map(item => {
                 total += item.price * item.quantity;
@@ -881,7 +589,6 @@
         async function loadOrders() {
             const container = document.getElementById('ordersItems');
             const empty = document.getElementById('ordersEmpty');
-
             const token = getToken();
             if (!token) {
                 container.innerHTML = '';
@@ -889,22 +596,18 @@
                 empty.innerHTML = '<i class="fas fa-box"></i><p>Войдите чтобы увидеть заказы</p>';
                 return;
             }
-
             try {
                 const response = await fetch(`${API_URL}/orders/`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (response.ok) {
                     const data = await response.json();
                     const orders = data.results || data;
-
                     if (orders.length === 0) {
                         container.innerHTML = '';
                         empty.style.display = 'block';
                         return;
                     }
-
                     empty.style.display = 'none';
                     container.innerHTML = orders.map(order => `
                         <div style="background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-radius:12px;padding:14px 18px;margin-bottom:10px;border:1px solid rgba(60,130,60,0.04);">
@@ -948,11 +651,7 @@
 
         async function createOrder() {
             const token = getToken();
-            if (!token) {
-                showToast('Войдите в аккаунт', 'error');
-                return;
-            }
-
+            if (!token) { showToast('Войдите в аккаунт', 'error'); return; }
             const data = {
                 product_ids: cart.map(item => item.id),
                 quantities: cart.map(item => item.quantity),
@@ -960,7 +659,6 @@
                 phone: document.getElementById('orderPhone').value,
                 notes: document.getElementById('orderNotes').value || ''
             };
-
             try {
                 const response = await fetch(`${API_URL}/orders/`, {
                     method: 'POST',
@@ -970,7 +668,6 @@
                     },
                     body: JSON.stringify(data)
                 });
-
                 if (response.ok) {
                     showToast('✅ Заказ создан!');
                     cart = [];
@@ -1010,9 +707,7 @@
         document.addEventListener('click', function(e) {
             const menu = document.getElementById('mobileMenu');
             const burger = document.getElementById('burgerBtn');
-            if (menu.classList.contains('open') &&
-                !menu.contains(e.target) &&
-                !burger.contains(e.target)) {
+            if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
                 closeMobileMenu();
             }
         });
@@ -1027,14 +722,10 @@
             loadBrands();
             loadProducts();
             updateBadges();
-
             window.addEventListener('resize', function() {
-                if (window.innerWidth > 820) {
-                    closeMobileMenu();
-                }
+                if (window.innerWidth > 820) { closeMobileMenu(); }
             });
         });
     </script>
-
 </body>
 </html>
