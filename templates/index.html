@@ -629,7 +629,7 @@
         }
 
         // ============================================================
-        // RENDER PRODUCTS — С АВТОМАТИЧЕСКИМИ КАРТИНКАМИ
+        // RENDER PRODUCTS — С КАРТИНКАМИ
         // ============================================================
         function renderProducts(products) {
             const container = document.getElementById('productsContainer');
@@ -642,28 +642,29 @@
             container.innerHTML = `
                 <div class="products-grid">
                     ${products.map(p => {
-                        let imgUrl = 'https://i.imgur.com/default-laptop.jpg';
-                        const name = p.name.toLowerCase();
+                        // КАРТИНКИ ПО SLUG ТОВАРА
+                        const images = {
+                            'asus-rog-strix-g16': 'https://i.imgur.com/ASUS_ROG_Strix_G16.jpg',
+                            'apple-macbook-air-m2': 'https://i.imgur.com/Apple_MacBook_Air_M2.jpg',
+                            'lenovo-thinkpad-x1-carbon': 'https://i.imgur.com/Lenovo_ThinkPad_X1.jpg',
+                            'dell-xps-16': 'https://i.imgur.com/Dell_XPS_16.jpg',
+                            'msi-stealth-17': 'https://i.imgur.com/MSI_Stealth_17.jpg',
+                            'hp-spectre-x360': 'https://i.imgur.com/HP_Spectre_x360.jpg',
+                            'samsung-galaxy-book-3-ultra': 'https://i.imgur.com/Samsung_Galaxy_Book.jpg',
+                            'acer-predator-helios-16': 'https://i.imgur.com/Acer_Predator.jpg',
+                            'asus-zenbook-14-oled': 'https://i.imgur.com/Asus_Zenbook.jpg',
+                            'lenovo-legion-pro-7i': 'https://i.imgur.com/Lenovo_Legion.jpg',
+                            'razer-blade-16': 'https://i.imgur.com/Razer_Blade.jpg',
+                        };
 
-                        if (name.includes('asus') && name.includes('rog')) {
-                            imgUrl = 'https://i.imgur.com/ASUS_ROG_Strix_G16.jpg';
-                        } else if (name.includes('macbook') || name.includes('apple')) {
-                            imgUrl = 'https://i.imgur.com/Apple_MacBook_Air_M2.jpg';
-                        } else if (name.includes('thinkpad') || name.includes('lenovo')) {
-                            imgUrl = 'https://i.imgur.com/Lenovo_ThinkPad_X1.jpg';
-                        } else if (name.includes('xps') || name.includes('dell')) {
-                            imgUrl = 'https://i.imgur.com/Dell_XPS_16.jpg';
-                        } else if (name.includes('stealth') || name.includes('msi')) {
-                            imgUrl = 'https://i.imgur.com/MSI_Stealth_17.jpg';
-                        } else if (name.includes('spectre') || name.includes('hp')) {
-                            imgUrl = 'https://i.imgur.com/HP_Spectre_x360.jpg';
-                        }
+                        const imgUrl = images[p.slug] || 'https://i.imgur.com/default-laptop.jpg';
 
                         return `
                             <div class="product-card">
                                 <a href="/product/${p.slug}/" style="text-decoration:none;color:inherit;display:block;">
-                                    <div class="product-image" style="height:190px;display:flex;align-items:center;justify-content:center;background:rgba(60,130,60,0.02);overflow:hidden;">
-                                        <img src="${imgUrl}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:10px;" onerror="this.src='https://i.imgur.com/default-laptop.jpg'">
+                                    <div class="product-image" style="height:190px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;overflow:hidden;">
+                                        <img src="${imgUrl}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:10px;"
+                                             onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\\'fas fa-laptop\\' style=\\'font-size:4rem;color:#8aaa8a;\\'></i>'">
                                     </div>
                                     <div class="product-info">
                                         <div class="product-name">${p.name || ''}</div>
@@ -690,7 +691,7 @@
         }
 
         // ============================================================
-        // RENDER FAVORITES — С АВТОМАТИЧЕСКИМИ КАРТИНКАМИ
+        // RENDER FAVORITES — С КАРТИНКАМИ
         // ============================================================
         function renderFavorites() {
             const container = document.getElementById('favoritesItems');
@@ -706,7 +707,7 @@
 
             container.innerHTML = favorites.map(id => `
                 <div class="product-card" id="fav-${id}">
-                    <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:rgba(60,130,60,0.02);overflow:hidden;">
+                    <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;overflow:hidden;">
                         <i class="fas fa-spinner fa-spin" style="font-size:2rem;color:#8aaa8a;"></i>
                     </div>
                     <div class="product-info">
@@ -722,26 +723,20 @@
                         const p = await response.json();
                         const card = document.getElementById(`fav-${id}`);
                         if (card) {
-                            let imgUrl = 'https://i.imgur.com/default-laptop.jpg';
-                            const name = p.name.toLowerCase();
-
-                            if (name.includes('asus') && name.includes('rog')) {
-                                imgUrl = 'https://i.imgur.com/ASUS_ROG_Strix_G16.jpg';
-                            } else if (name.includes('macbook') || name.includes('apple')) {
-                                imgUrl = 'https://i.imgur.com/Apple_MacBook_Air_M2.jpg';
-                            } else if (name.includes('thinkpad') || name.includes('lenovo')) {
-                                imgUrl = 'https://i.imgur.com/Lenovo_ThinkPad_X1.jpg';
-                            } else if (name.includes('xps') || name.includes('dell')) {
-                                imgUrl = 'https://i.imgur.com/Dell_XPS_16.jpg';
-                            } else if (name.includes('stealth') || name.includes('msi')) {
-                                imgUrl = 'https://i.imgur.com/MSI_Stealth_17.jpg';
-                            } else if (name.includes('spectre') || name.includes('hp')) {
-                                imgUrl = 'https://i.imgur.com/HP_Spectre_x360.jpg';
-                            }
+                            const images = {
+                                'asus-rog-strix-g16': 'https://i.imgur.com/ASUS_ROG_Strix_G16.jpg',
+                                'apple-macbook-air-m2': 'https://i.imgur.com/Apple_MacBook_Air_M2.jpg',
+                                'lenovo-thinkpad-x1-carbon': 'https://i.imgur.com/Lenovo_ThinkPad_X1.jpg',
+                                'dell-xps-16': 'https://i.imgur.com/Dell_XPS_16.jpg',
+                                'msi-stealth-17': 'https://i.imgur.com/MSI_Stealth_17.jpg',
+                                'hp-spectre-x360': 'https://i.imgur.com/HP_Spectre_x360.jpg',
+                            };
+                            const imgUrl = images[p.slug] || 'https://i.imgur.com/default-laptop.jpg';
 
                             card.innerHTML = `
-                                <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:rgba(60,130,60,0.02);overflow:hidden;">
-                                    <img src="${imgUrl}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:10px;" onerror="this.src='https://i.imgur.com/default-laptop.jpg'">
+                                <div class="product-image" style="height:150px;display:flex;align-items:center;justify-content:center;background:#f5f5f5;overflow:hidden;">
+                                    <img src="${imgUrl}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:10px;"
+                                         onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\\'fas fa-laptop\\' style=\\'font-size:2.5rem;color:#8aaa8a;\\'></i>'">
                                 </div>
                                 <div class="product-info">
                                     <div class="product-name" style="font-weight:600;font-size:0.95rem;min-height:40px;">${p.name}</div>
